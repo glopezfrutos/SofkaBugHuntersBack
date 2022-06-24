@@ -17,6 +17,5 @@ public class AppUser {
     private Long id;
 
     private String email;
-
-//    private Enum<Role> role;
+    private Enum<Role> role;
 }

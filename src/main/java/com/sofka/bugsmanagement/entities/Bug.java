@@ -1,8 +1,13 @@
 package com.sofka.bugsmanagement.entities;
 
 import lombok.*;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Entity
 @Table
@@ -19,16 +24,16 @@ public class Bug {
 
     private String createdAt; // YYYY-MM-DD
 
+//    @LazyCollection(LazyCollectionOption.FALSE)
 //    @OneToMany(
 //            cascade = CascadeType.ALL,
-//            orphanRemoval = true,
-//            fetch = FetchType.EAGER
+//            orphanRemoval = true
 //    )
 //    private List<AppUser> responsible = new ArrayList<>();
 
     private String contextInfo; // max 1000 characters
 
-//    private Enum<Lifecycle> lifecycle; //(Planificación; Análisis; Diseño; Implementación; Pruebas; Despliegue; Uso o mantenimiento).
+    private Enum<Lifecycle> lifecycle; //(Planificación; Análisis; Diseño; Implementación; Pruebas; Despliegue; Uso o mantenimiento).
 
     private String additionalFile;
 
@@ -36,15 +41,15 @@ public class Bug {
 
 //    private Enum<Level> priority; //(Bajo; Medio; Alto)
 
-    private String status; // (asignado, cancelado, rechazado, cerrado con defectos, reinsidente, solucionado)
+    private Enum<BugStatus> status; // (asignado, cancelado, rechazado, cerrado con defectos, reinsidente, solucionado)
 
     private String conclusion; // 5000 max characters
 
-//    private String globalIssues; // 5000 max characters
-//
-//    private String references; // 5000 max characters
-//
-//    private String closedAt; // YYYY-MM-DD nullable
+    private String globalIssues; // 5000 max characters
+
+    private String references; // 5000 max characters
+
+    private String closedAt; // YYYY-MM-DD nullable
 
 //    @OneToOne(
 //            cascade = CascadeType.ALL,
@@ -53,5 +58,5 @@ public class Bug {
 //    )
 //    private AppUser solutionResponsible;
 
-//    private String developerObservations; // 5000 max characters
+    private String developerObservations; // 5000 max characters
 }

@@ -19,5 +19,5 @@ public class Tag {
 
     private String tag;
 
-//    private Long taskId;
+    private Long taskId;
 }

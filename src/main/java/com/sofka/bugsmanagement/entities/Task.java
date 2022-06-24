@@ -1,6 +1,8 @@
 package com.sofka.bugsmanagement.entities;
 
 import lombok.*;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -17,37 +19,37 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-//    private Long projectId;
+    private Long projectId;
 
-//    @OneToMany(
-//            mappedBy = "taskId",
-//            cascade = CascadeType.ALL,
-//            orphanRemoval = true,
-//            fetch = FetchType.EAGER
-//    )
-//    private List<Bug> bugList = new ArrayList<>();
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @OneToMany(
+            mappedBy = "taskId",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Bug> bugList = new ArrayList<>();
 
     private String name; // max 50 characters
     private String createdAt; // YYYY-MM-DD
     private String closedAt; // YYYY-MM-DD
 
-//    @OneToMany(
-//            mappedBy = "taskId",
-//            cascade = CascadeType.ALL,
-//            orphanRemoval = true,
-//            fetch = FetchType.EAGER
-//    )
-//    private List<Tag> tags = new ArrayList<>();
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @OneToMany(
+            mappedBy = "taskId",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Tag> tags = new ArrayList<>();
 
     private String description; // max 100 characters
 
     private String additionalFile;
-//    private Enum<TaskStatus> status; // opened - closed - blocked
+    private Enum<TaskStatus> status; // opened - closed - blocked
 
+//    @LazyCollection(LazyCollectionOption.FALSE)
 //    @OneToMany(
 //            cascade = CascadeType.ALL,
-//            orphanRemoval = true,
-//            fetch = FetchType.EAGER
+//            orphanRemoval = true
 //    )
 //    private List<AppUser> responsible = new ArrayList<>();
 }

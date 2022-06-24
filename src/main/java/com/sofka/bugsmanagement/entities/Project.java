@@ -1,6 +1,10 @@
 package com.sofka.bugsmanagement.entities;
 
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -22,30 +26,31 @@ public class Project {
     private String createdAt;
     private String closedAt;
 
-    @OneToMany(
-//            cascade = CascadeType.ALL,
-//            orphanRemoval = true,
-            fetch = FetchType.EAGER
-    )
-    private List<AppUser> teamMembers = new ArrayList<>();
-
+//    @LazyCollection(LazyCollectionOption.FALSE)
 //    @OneToMany(
-////            cascade = CascadeType.ALL,
-////            orphanRemoval = true,
-//            fetch = FetchType.EAGER
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true
 //    )
+//    private List<AppUser> teamMembers = new ArrayList<>();
+
+//    @LazyCollection(LazyCollectionOption.FALSE)
+//    @OneToMany(
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true
+//    )
+//
 //    private List<AppUser> owners = new ArrayList<>();
 
     private String description;
 
 
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(
-//            mappedBy = "projectId",
-//            cascade = CascadeType.ALL,
-//            orphanRemoval = true,
-            fetch = FetchType.EAGER
+            mappedBy = "projectId",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
     )
     private List<Task> tasksList = new ArrayList<>();
 
-//    private Enum<ProjectStatus> status;
+    private Enum<ProjectStatus> status;
 }
