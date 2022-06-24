@@ -1,4 +1,4 @@
-package com.sofka.bugsManagment.collections;
+package com.sofka.bugsManagment.entities;
 
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;

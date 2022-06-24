@@ -1,4 +1,4 @@
-package com.sofka.bugsManagment.security;
+package com.sofka.bugsManagment.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,7 +7,7 @@ import org.springframework.web.reactive.config.WebFluxConfigurer;
 import org.springframework.web.reactive.config.WebFluxConfigurerComposite;
 
 @Configuration
-public class WebFluxConfig {
+public class CorsConfig {
     @Bean
     public WebFluxConfigurer corsConfigure() {
         return new WebFluxConfigurerComposite() {
