@@ -1,6 +1,4 @@
-package com.sofka.bugsManagment.repositories;
-
-import com.sofka.bugsManagment.entities.Project;
+package com.sofka.bugsmanagement.repositories;
 
 public interface IProjectRepository {
 }

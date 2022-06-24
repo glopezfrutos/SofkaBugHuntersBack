@@ -1,4 +1,4 @@
-package com.sofka.bugsManagment.entities;
+package com.sofka.bugsmanagement.entities;
 
 import lombok.*;
 

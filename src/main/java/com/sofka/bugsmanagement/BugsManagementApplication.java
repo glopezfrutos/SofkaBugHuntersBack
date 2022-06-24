@@ -1,13 +1,13 @@
-package com.sofka.bugsManagment;
+package com.sofka.bugsmanagement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BugsManagmentApplication {
+public class BugsManagementApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BugsManagmentApplication.class, args);
+		SpringApplication.run(BugsManagementApplication.class, args);
 	}
 
 }

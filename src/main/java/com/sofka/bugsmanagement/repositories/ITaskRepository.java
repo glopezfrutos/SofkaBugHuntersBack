@@ -1,4 +1,4 @@
-package com.sofka.bugsManagment.repositories;
+package com.sofka.bugsmanagement.repositories;
 
 
 public interface ITaskRepository {

@@ -1,4 +1,4 @@
-package com.sofka.bugsManagment.config;
+package com.sofka.bugsmanagement.config;
 
 public class WebSecurityConfig {
 }

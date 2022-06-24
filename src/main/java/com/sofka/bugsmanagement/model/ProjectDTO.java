@@ -1,4 +1,4 @@
-package com.sofka.bugsManagment.model;
+package com.sofka.bugsmanagement.model;
 
 import java.time.LocalDate;
 import java.util.List;
