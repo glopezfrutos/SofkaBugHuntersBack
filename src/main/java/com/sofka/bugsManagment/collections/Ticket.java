@@ -1,7 +1,16 @@
 package com.sofka.bugsManagment.collections;
 
+import lombok.*;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDate;
 import java.util.List;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Document(collection = "ticket")
 
 public class Ticket {
     private String taskId;
@@ -10,7 +19,7 @@ public class Ticket {
     private String description; // max 500 characters
     private LocalDate createdAt; // YYYY-MM-DD
     private LocalDate closedAt; // YYYY-MM-DD // nullable
-    private String responsable;
+    private String responsible;
     private String  spottedAt; //(Planificación; Análisis; Diseño; Implementación; Pruebas; Despliegue; Uso o mantenimiento).
     private List<String> proof;
     private  String severity; //(Bajo; Medio; Alto)
@@ -18,7 +27,7 @@ public class Ticket {
     private String importance;//(Bajo; Medio; Alto)
     private String status; // (asignado, cancelado, rechazado, cerrado con defectos, reinsidente, solucionado)
     private String conclusion;// 5000 max characters
-    private String gobalProblems; // 5000 max characters
+    private String globalProblems; // 5000 max characters
     private String email;
-    private String developrObservations; // 5000 max characters
+    private String developerObservations; // 5000 max characters
 }
