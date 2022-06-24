@@ -1,7 +1,6 @@
 package com.sofka.bugsManagment.entities;
 
 import lombok.*;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -10,8 +9,6 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@Document(collection = "ticket")
-
 public class Ticket {
     private String taskId;
     private Integer id;

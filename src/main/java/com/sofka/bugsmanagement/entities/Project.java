@@ -1,8 +1,6 @@
 package com.sofka.bugsManagment.entities;
 
 import lombok.*;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.time.LocalDate;
 import java.util.List;
 @Data
@@ -10,8 +8,6 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@Document(collection = "project")
-
 public class Project {
     private String mongoId;
     private Integer id;
