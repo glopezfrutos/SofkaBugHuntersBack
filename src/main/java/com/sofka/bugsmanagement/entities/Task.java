@@ -2,22 +2,52 @@ package com.sofka.bugsmanagement.entities;
 
 import lombok.*;
 
-import java.time.LocalDate;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@Entity
+@Table
 public class Task {
-    private String id;
-    private String projectId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+//    private Long projectId;
+
+//    @OneToMany(
+//            mappedBy = "taskId",
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true,
+//            fetch = FetchType.EAGER
+//    )
+//    private List<Bug> bugList = new ArrayList<>();
+
     private String name; // max 50 characters
-    private LocalDate createdAt; // YYYY-MM-DD
-    private LocalDate closedAt; // YYYY-MM-DD
-    private List<?> tags;
+    private String createdAt; // YYYY-MM-DD
+    private String closedAt; // YYYY-MM-DD
+
+//    @OneToMany(
+//            mappedBy = "taskId",
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true,
+//            fetch = FetchType.EAGER
+//    )
+//    private List<Tag> tags = new ArrayList<>();
+
     private String description; // max 100 characters
-    private List<Object> additionalFiles;
-    private var status; // opened - closed - blocked
-    private  List<String> responsibles;// emails
+
+    private String additionalFile;
+//    private Enum<TaskStatus> status; // opened - closed - blocked
+
+//    @OneToMany(
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true,
+//            fetch = FetchType.EAGER
+//    )
+//    private List<AppUser> responsible = new ArrayList<>();
 }

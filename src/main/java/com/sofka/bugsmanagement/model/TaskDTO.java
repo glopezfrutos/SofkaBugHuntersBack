@@ -12,6 +12,6 @@ public class TaskDTO {
     private List<?> tags;
     private String description; // max 100 characters
     private List<Object> additionalFiles;
-//    private Status status; // opened - closed - blocked
+//    private ProjectStatus status; // opened - closed - blocked
     private  List<String> responsables;// emails
 }
