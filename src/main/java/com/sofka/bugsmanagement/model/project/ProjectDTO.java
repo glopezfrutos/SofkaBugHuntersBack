@@ -1,4 +1,4 @@
-package com.sofka.bugsmanagement.model;
+package com.sofka.bugsmanagement.model.project;
 
 import com.sofka.bugsmanagement.collections.ProjectStatus;
 import lombok.Data;

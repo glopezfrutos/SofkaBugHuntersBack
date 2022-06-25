@@ -1,5 +1,6 @@
-package com.sofka.bugsmanagement.model;
+package com.sofka.bugsmanagement.model.user;
 
+import com.sofka.bugsmanagement.model.user.Role;
 import lombok.Data;
 import org.springframework.data.annotation.Transient;
 

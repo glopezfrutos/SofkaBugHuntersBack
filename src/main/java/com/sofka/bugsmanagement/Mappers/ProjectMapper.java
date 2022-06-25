@@ -1,7 +1,7 @@
 package com.sofka.bugsmanagement.Mappers;
 
 import com.sofka.bugsmanagement.collections.Project;
-import com.sofka.bugsmanagement.model.ProjectDTO;
+import com.sofka.bugsmanagement.model.project.ProjectDTO;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;

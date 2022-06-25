@@ -1,28 +1,29 @@
-package com.sofka.bugsmanagement.usecases.project;
+package com.sofka.bugsmanagement.usecases.user;
 
 import com.sofka.bugsmanagement.Mappers.UserMapper;
-import com.sofka.bugsmanagement.model.UserDto;
+import com.sofka.bugsmanagement.model.user.UserDto;
 import com.sofka.bugsmanagement.repositories.IUserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import reactor.core.publisher.Mono;
+import reactor.core.publisher.Flux;
 
-import java.util.function.Function;
+import java.util.function.Supplier;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class CreateUserUseCase implements Function<UserDto, Mono<UserDto>> {
+public class GetUsersUseCase implements Supplier<Flux<UserDto>> {
 
     private final IUserRepository repository;
     private final UserMapper mapper;
 
+
     @Override
-    public Mono<UserDto> apply(UserDto userDto) {
-        log.info("*** New user created: {} ***", userDto.getEmail());
+    public Flux<UserDto> get() {
+        log.info("*** Get all users ***");
         return repository
-                .save(mapper.convertDtoToEntity().apply(userDto))
+                .findAll()
                 .map(dto -> mapper
                         .convertEntityToDto()
                         .apply(dto));

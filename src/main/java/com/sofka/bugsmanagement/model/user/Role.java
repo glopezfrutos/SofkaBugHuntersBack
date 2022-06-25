@@ -1,4 +1,4 @@
-package com.sofka.bugsmanagement.model;
+package com.sofka.bugsmanagement.model.user;
 
 public enum Role {
     ADMIN("ADMIN"), TESTER("TESTER"), DEVELOPER("DEVELOPER");
