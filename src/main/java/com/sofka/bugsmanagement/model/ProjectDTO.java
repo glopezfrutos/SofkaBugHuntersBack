@@ -1,16 +1,20 @@
 package com.sofka.bugsmanagement.model;
 
+import com.sofka.bugsmanagement.collections.ProjectStatus;
+import lombok.Data;
+
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
+@Data
 public class ProjectDTO {
-    private String mongoId;
-    private Integer id;
+    private String id;
     private String name;
-    private LocalDate createdAt;
-    private LocalDate closedAt;
-    private String emails;
-    private List<Object> owners;
+    private String createdAt;
+    private String closedAt;
+    private Set<String> teamEmails;
+    private Set<String> owners;
     private String description;
-    private List<Object> tasksList;
+    private String status;
 }

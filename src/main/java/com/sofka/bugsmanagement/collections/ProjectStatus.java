@@ -1,4 +1,4 @@
-package com.sofka.bugsmanagement.entities;
+package com.sofka.bugsmanagement.collections;
 
 public enum ProjectStatus {
     CREATED, // creado: se refiere a una línea base sin actividad,
