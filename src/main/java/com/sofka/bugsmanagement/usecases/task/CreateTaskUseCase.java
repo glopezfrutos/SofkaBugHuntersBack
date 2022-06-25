@@ -1,7 +1,7 @@
 package com.sofka.bugsmanagement.usecases.task;
 
 import com.sofka.bugsmanagement.Mappers.TaskMapper;
-import com.sofka.bugsmanagement.model.TaskDTO;
+import com.sofka.bugsmanagement.model.task.TaskDTO;
 import com.sofka.bugsmanagement.repositories.ITaskRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

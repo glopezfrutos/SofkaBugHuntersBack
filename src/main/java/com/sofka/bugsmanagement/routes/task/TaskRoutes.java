@@ -1,6 +1,6 @@
 package com.sofka.bugsmanagement.routes.task;
 
-import com.sofka.bugsmanagement.model.TaskDTO;
+import com.sofka.bugsmanagement.model.task.TaskDTO;
 import com.sofka.bugsmanagement.usecases.task.CreateTaskUseCase;
 import com.sofka.bugsmanagement.usecases.task.GetTaskUseCase;
 import org.springframework.context.annotation.Bean;

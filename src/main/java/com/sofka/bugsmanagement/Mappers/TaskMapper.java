@@ -2,7 +2,7 @@ package com.sofka.bugsmanagement.Mappers;
 
 
 import com.sofka.bugsmanagement.collections.Task;
-import com.sofka.bugsmanagement.model.TaskDTO;
+import com.sofka.bugsmanagement.model.task.TaskDTO;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;

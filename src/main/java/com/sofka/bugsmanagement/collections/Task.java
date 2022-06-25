@@ -23,8 +23,8 @@ public class Task {
     private String closedAt;
     private Set<String> tag;
     private String description;
-    private String status;
     private Set<String> additionalFilesId;
     private Set<String> responsibleEmail;
+    private String status;
 
 }
