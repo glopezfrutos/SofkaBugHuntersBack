@@ -19,7 +19,7 @@ public class Bug {
 ////            cascade = CascadeType.ALL,
 ////            orphanRemoval = true
 ////    )
-////    private List<AppUser> responsible = new ArrayList<>();
+////    private List<User> responsible = new ArrayList<>();
 //
 //    private String contextInfo; // max 1000 characters
 //
@@ -46,7 +46,7 @@ public class Bug {
 ////            orphanRemoval = true,
 ////            fetch = FetchType.EAGER
 ////    )
-////    private AppUser solutionResponsible;
+////    private User solutionResponsible;
 //
 //    private String developerObservations; // 5000 max characters
 }

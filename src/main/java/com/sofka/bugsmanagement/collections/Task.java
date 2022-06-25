@@ -38,5 +38,5 @@ public class Task {
 ////            cascade = CascadeType.ALL,
 ////            orphanRemoval = true
 ////    )
-////    private List<AppUser> responsible = new ArrayList<>();
+////    private List<User> responsible = new ArrayList<>();
 }
