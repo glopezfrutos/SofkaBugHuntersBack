@@ -1,6 +1,6 @@
 package com.sofka.bugsmanagement.routes;
 
-import com.sofka.bugsmanagement.model.ProjectDTO;
+import com.sofka.bugsmanagement.model.project.ProjectDTO;
 import com.sofka.bugsmanagement.usecases.project.CreateProjectUseCase;
 import com.sofka.bugsmanagement.usecases.project.GetProjectsUseCase;
 import org.springframework.context.annotation.Bean;
