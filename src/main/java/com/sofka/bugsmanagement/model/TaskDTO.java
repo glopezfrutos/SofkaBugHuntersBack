@@ -1,17 +1,23 @@
 package com.sofka.bugsmanagement.model;
 
-import java.time.LocalDate;
-import java.util.List;
+import com.sofka.bugsmanagement.collections.Project;
+import lombok.Data;
 
+import java.util.Set;
+
+@Data
 public class TaskDTO {
-//    private String id;
-//    private String projectId;
-//    private String name; // max 50 characters
-//    private LocalDate createdAt; // YYYY-MM-DD
-//    private LocalDate closedAt; // YYYY-MM-DD
-//    private List<?> tags;
-//    private String description; // max 100 characters
-//    private List<Object> additionalFiles;
-////    private ProjectStatus status; // opened - closed - blocked
-//    private  List<String> responsables;// emails
+
+    private String id;
+    private Project projectId;
+    private Project projectName;
+    private String name;
+    private String createdAt;
+    private String closedAt;
+    private Set<String> tag;
+    private String description;
+    private String status;
+    private Set<String> additionalFilesId;
+    private Set<String> responsibleEmail;
+
 }

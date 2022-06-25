@@ -1,42 +1,30 @@
 package com.sofka.bugsmanagement.collections;
 
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Set;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Document(collection = "task")
 public class Task {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    private Long id;
-//
-//    private Long projectId;
-//
-//    @LazyCollection(LazyCollectionOption.FALSE)
-//    @OneToMany(
-//            mappedBy = "taskId",
-//            cascade = CascadeType.ALL,
-//            orphanRemoval = true
-//    )
-//    private List<Bug> bugList = new ArrayList<>();
-//
-//    private String name; // max 50 characters
-//    private String createdAt; // YYYY-MM-DD
-//    private String closedAt; // YYYY-MM-DD
-//
-//    @LazyCollection(LazyCollectionOption.FALSE)
-//    @OneToMany(
-//            mappedBy = "taskId",
-//            cascade = CascadeType.ALL,
-//            orphanRemoval = true
-//    )
-//    private List<Tag> tags = new ArrayList<>();
-//
-//    private String description; // max 100 characters
-//
-//    private String additionalFile;
-//    private Enum<TaskStatus> status; // opened - closed - blocked
-//
-////    @LazyCollection(LazyCollectionOption.FALSE)
-////    @OneToMany(
-////            cascade = CascadeType.ALL,
-////            orphanRemoval = true
-////    )
-////    private List<User> responsible = new ArrayList<>();
+
+    @Id
+    private String id;
+    private Project projectId;
+    private Project projectName;
+    private String name;
+    private String createdAt;
+    private String closedAt;
+    private Set<String> tag;
+    private String description;
+    private String status;
+    private Set<String> additionalFilesId;
+    private Set<String> responsibleEmail;
+
 }
