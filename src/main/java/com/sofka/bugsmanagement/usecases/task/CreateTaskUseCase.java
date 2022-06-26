@@ -9,12 +9,11 @@ import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
 
 import javax.validation.Valid;
-import java.util.function.Function;
 
 @Service
 @Validated
 @RequiredArgsConstructor
-public class CreateTaskUseCase /*implements Function<TaskDTO, Mono<TaskDTO>>*/ {
+public class CreateTaskUseCase  {
 
     private final ITaskRepository taskRepository;
     private final TaskMapper taskMapper;
