@@ -1,7 +1,7 @@
 package com.sofka.bugsmanagement.model.user;
 
 public enum Role {
-    ADMIN("ADMIN"), TESTER("TESTER"), DEVELOPER("DEVELOPER");
+    ADMIN("ADMIN"), TESTER("TESTER"), DEVELOPER("DEVELOPER"), READER("READER");
 
     private final String value;
 
@@ -28,6 +28,6 @@ public enum Role {
     }
 
     public static Role getDefault() {
-        return DEVELOPER;
+        return READER;
     }
 }

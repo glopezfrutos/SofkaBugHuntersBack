@@ -1,20 +1,14 @@
-package com.sofka.bugsmanagement.collections;
+package com.sofka.bugsmanagement.model.task;
 
-import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.sofka.bugsmanagement.collections.Project;
+import lombok.Data;
 
+import org.springframework.data.annotation.Transient;
 import java.util.Set;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@Document(collection = "task")
-public class Task {
+public class TaskDTO {
 
-    @Id
     private String id;
     private Project projectId;
     private Project projectName;
@@ -27,4 +21,8 @@ public class Task {
     private Set<String> responsibleEmail;
     private String status;
 
+    @Transient
+    public TaskStatus getStatus() {return TaskStatus.fromValue(status);}
+
+    public void setStatus(TaskStatus status) {this.status= status.toValue();}
 }
