@@ -13,7 +13,7 @@ import java.util.Set;
 public class ProjectDTO {
     private String id;
     @NotBlank
-    @Size(message= "Project name must have 50 characters as maximum", max=50)
+    @Size(message= "Project name must have maximum 50 characters", max=50)
     private String name;
     private String createdAt;
     private String closedAt;
@@ -25,7 +25,7 @@ public class ProjectDTO {
     @NotEmpty(message = "Owners list must not be empty")
     private Set<String> owners;
     @NotBlank
-    @Size(message= "Project description must have 2000 characters as maximum", max=2000)
+    @Size(message= "Project description must have maximum 2000 characters", max=2000)
     private String description;
     private String status;
 
