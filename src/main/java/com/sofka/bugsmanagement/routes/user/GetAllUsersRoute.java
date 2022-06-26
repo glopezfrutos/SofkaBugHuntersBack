@@ -19,7 +19,7 @@ public class GetAllUsersRoute {
     @Bean
     public RouterFunction<ServerResponse> getUsersRouter(GetUsersUseCase useCase){
         return route(
-                GET("/user").and(accept(MediaType.APPLICATION_JSON)),
+                GET("/api/v1/user").and(accept(MediaType.APPLICATION_JSON)),
                 request -> ServerResponse
                         .status(HttpStatus.OK)
                         .contentType(MediaType.APPLICATION_JSON)
