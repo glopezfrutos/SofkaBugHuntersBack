@@ -18,7 +18,7 @@ public class PostUserRoute {
     @Bean
     public RouterFunction<ServerResponse> createUserRouter(CreateUserUseCase useCase){
         return route(
-                POST("/user").and(accept(MediaType.APPLICATION_JSON)),
+                POST("/api/v1/user").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(UserDto.class)
                         .flatMap(useCase::apply)
                         .flatMap(dto -> ServerResponse.status(HttpStatus.CREATED)
@@ -27,3 +27,4 @@ public class PostUserRoute {
         );
     }
 }
+

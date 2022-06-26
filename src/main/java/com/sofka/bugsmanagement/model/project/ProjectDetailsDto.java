@@ -4,6 +4,7 @@ import com.sofka.bugsmanagement.model.task.TaskDTO;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -18,7 +19,7 @@ public class ProjectDetailsDto {
     private Set<String> owners;
     private String description;
     private String status;
-    private List<TaskDTO> tasks;
+    private List<TaskDTO> tasks = new ArrayList<>();
 
     public ProjectStatus getStatus() {
         return ProjectStatus.fromValue(status);
