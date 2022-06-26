@@ -15,7 +15,6 @@ public class GetProjectsUseCase implements Supplier<Flux<ProjectDTO>> {
     private final IProjectRepository projectRepository;
     private final ProjectMapper projectMapper;
 
-
     @Override
     public Flux<ProjectDTO> get() {
         return projectRepository
