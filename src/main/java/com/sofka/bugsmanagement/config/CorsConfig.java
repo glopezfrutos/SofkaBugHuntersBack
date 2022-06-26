@@ -1,12 +1,13 @@
 package com.sofka.bugsmanagement.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.config.CorsRegistry;
 import org.springframework.web.reactive.config.WebFluxConfigurer;
 import org.springframework.web.reactive.config.WebFluxConfigurerComposite;
 
 
-//@Configuration
+@Configuration
 public class CorsConfig {
     @Bean
     public WebFluxConfigurer corsConfigure() {
