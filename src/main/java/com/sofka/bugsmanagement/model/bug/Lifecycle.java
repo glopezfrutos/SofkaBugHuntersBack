@@ -1,4 +1,4 @@
-package com.sofka.bugsmanagement.collections;
+package com.sofka.bugsmanagement.model.bug;
 
 public enum Lifecycle {
 //    PLANNING,
