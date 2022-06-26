@@ -16,8 +16,8 @@ public class Task {
 
     @Id
     private String id;
-    private Set<String> projectId;
-    private Set<String> projectName;
+    private String projectId;
+    private String projectName;
     private String name;
     private String createdAt;
     private String closedAt;
@@ -26,5 +26,4 @@ public class Task {
     private Set<String> additionalFilesId;
     private Set<String> responsibleEmail;
     private String status;
-
 }

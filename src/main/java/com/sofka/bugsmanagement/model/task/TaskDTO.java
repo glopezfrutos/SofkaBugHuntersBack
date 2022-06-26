@@ -18,8 +18,8 @@ public class TaskDTO {
     @Size(message="Task ID must have 50 characters as maximum", max=50)
     private String id;
 
-    private Set<String> projectId;
-    private Set<String> projectName;
+    private String projectId;
+    private String projectName;
 
     @NotBlank
     @Size(message="Task name must have 50 characters as maximum", max=50)
