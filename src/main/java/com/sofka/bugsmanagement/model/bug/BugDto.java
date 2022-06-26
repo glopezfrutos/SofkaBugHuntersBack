@@ -1,19 +1,15 @@
-package com.sofka.bugsmanagement.collections;
+package com.sofka.bugsmanagement.model.bug;
 
-import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.sofka.bugsmanagement.model.user.Role;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.data.annotation.Transient;
 
 import java.util.Set;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
-@Document(collection = "bug")
-public class Bug {
-    @Id
+public class BugDto {
     private String id;
 
     private String projectId;
@@ -51,4 +47,40 @@ public class Bug {
     private String solutionResponsible;
 
     private String developerObservations; // 5000 max characters
+
+    @Transient
+    public Lifecycle getLifecycle() {
+        return Lifecycle.fromValue(lifecycle);
+    }
+
+    public void setRole(Lifecycle lifecycle) {
+        this.lifecycle = lifecycle.toValue();
+    }
+
+    @Transient
+    public Level getSeverity() {
+        return Level.fromValue(severity);
+    }
+
+    public void setSeverity(Level level) {
+        this.severity = level.toValue();
+    }
+
+    @Transient
+    public Level getPriority() {
+        return Level.fromValue(priority);
+    }
+
+    public void setPriority(Level level) {
+        this.priority = level.toValue();
+    }
+
+    @Transient
+    public BugStatus getStatus() {
+        return BugStatus.fromValue(status);
+    }
+
+    public void setStatus(BugStatus bugStatus) {
+        this.status = bugStatus.toValue();
+    }
 }
