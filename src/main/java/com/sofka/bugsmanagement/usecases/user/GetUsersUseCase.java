@@ -1,6 +1,6 @@
 package com.sofka.bugsmanagement.usecases.user;
 
-import com.sofka.bugsmanagement.Mappers.UserMapper;
+import com.sofka.bugsmanagement.mappers.UserMapper;
 import com.sofka.bugsmanagement.model.user.UserDto;
 import com.sofka.bugsmanagement.repositories.IUserRepository;
 import lombok.RequiredArgsConstructor;

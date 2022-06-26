@@ -1,6 +1,6 @@
 package com.sofka.bugsmanagement.usecases.project;
 
-import com.sofka.bugsmanagement.Mappers.ProjectMapper;
+import com.sofka.bugsmanagement.mappers.ProjectMapper;
 import com.sofka.bugsmanagement.model.project.ProjectDTO;
 import com.sofka.bugsmanagement.repositories.IProjectRepository;
 import lombok.RequiredArgsConstructor;
