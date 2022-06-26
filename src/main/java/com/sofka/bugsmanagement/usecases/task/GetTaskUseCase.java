@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
 import java.util.function.Supplier;
+
 @Service
 @RequiredArgsConstructor
 public class GetTaskUseCase implements Supplier<Flux<TaskDTO>> {
