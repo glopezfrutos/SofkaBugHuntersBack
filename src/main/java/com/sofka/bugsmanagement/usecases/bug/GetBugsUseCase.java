@@ -1,6 +1,6 @@
 package com.sofka.bugsmanagement.usecases.bug;
 
-import com.sofka.bugsmanagement.Mappers.BugMapper;
+import com.sofka.bugsmanagement.mappers.BugMapper;
 import com.sofka.bugsmanagement.model.bug.BugDto;
 import com.sofka.bugsmanagement.repositories.IBugRepository;
 import lombok.RequiredArgsConstructor;

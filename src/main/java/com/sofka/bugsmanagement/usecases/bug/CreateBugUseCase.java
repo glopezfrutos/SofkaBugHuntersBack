@@ -1,11 +1,8 @@
 package com.sofka.bugsmanagement.usecases.bug;
 
-import com.sofka.bugsmanagement.Mappers.BugMapper;
-import com.sofka.bugsmanagement.Mappers.UserMapper;
+import com.sofka.bugsmanagement.mappers.BugMapper;
 import com.sofka.bugsmanagement.model.bug.BugDto;
-import com.sofka.bugsmanagement.model.user.UserDto;
 import com.sofka.bugsmanagement.repositories.IBugRepository;
-import com.sofka.bugsmanagement.repositories.IUserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.sofka.bugsmanagement.Mappers;
+package com.sofka.bugsmanagement.mappers;
 
 import com.sofka.bugsmanagement.collections.Project;
 import com.sofka.bugsmanagement.model.project.ProjectDTO;
