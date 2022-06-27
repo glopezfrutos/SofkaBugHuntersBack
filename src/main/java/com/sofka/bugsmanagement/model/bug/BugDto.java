@@ -5,11 +5,9 @@ import lombok.Setter;
 import org.springframework.data.annotation.Transient;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -50,7 +48,6 @@ public class BugDto {
     private String closedAt; // YYYY-MM-DD nullable
     @NotNull
     private String solutionResponsible;
-    @NotNull
     @Size(message= "Bug developer observations must have maximum 5000 characters", max=5000)
     private String developerObservations; // 5000 max characters
 
