@@ -13,13 +13,11 @@ import java.util.function.Supplier;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class GetUsersUseCase implements Supplier<Flux<UserDto>> {
+public class GetUsersUseCase {
 
     private final IUserRepository repository;
     private final UserMapper mapper;
 
-
-    @Override
     public Flux<UserDto> get() {
         log.info("*** Get all users ***");
         return repository

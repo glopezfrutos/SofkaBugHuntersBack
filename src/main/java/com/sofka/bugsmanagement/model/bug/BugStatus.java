@@ -1,7 +1,5 @@
 package com.sofka.bugsmanagement.model.bug;
 
-import com.sofka.bugsmanagement.model.user.Role;
-
 public enum BugStatus {
     ASSIGNED("ASSIGNED"),
     CANCELED("CANCELED"),

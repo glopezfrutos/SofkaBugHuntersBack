@@ -1,6 +1,6 @@
 package com.sofka.bugsmanagement.routes.task;
 
-import com.sofka.bugsmanagement.model.task.TaskDTO;
+import com.sofka.bugsmanagement.model.task.TaskDto;
 import com.sofka.bugsmanagement.usecases.task.GetTaskUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +24,7 @@ public class GetAllTasksRoute {
                 request -> ServerResponse
                         .status(HttpStatus.OK)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .body(BodyInserters.fromPublisher(getTaskUseCase.get(), TaskDTO.class))
+                        .body(BodyInserters.fromPublisher(getTaskUseCase.get(), TaskDto.class))
         );
     }
 }
