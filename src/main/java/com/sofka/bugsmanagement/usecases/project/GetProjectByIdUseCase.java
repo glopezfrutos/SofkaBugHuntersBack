@@ -1,7 +1,7 @@
 package com.sofka.bugsmanagement.usecases.project;
 
 import com.sofka.bugsmanagement.mappers.ProjectMapper;
-import com.sofka.bugsmanagement.model.project.ProjectDTO;
+import com.sofka.bugsmanagement.model.project.ProjectDto;
 import com.sofka.bugsmanagement.repositories.IProjectRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,13 +13,13 @@ import java.util.function.Function;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class GetProjectByIdUseCase implements Function<String, Mono<ProjectDTO>> {
+public class GetProjectByIdUseCase implements Function<String, Mono<ProjectDto>> {
 
     private final IProjectRepository repository;
     private final ProjectMapper mapper;
 
     @Override
-    public Mono<ProjectDTO> apply(String id) {
+    public Mono<ProjectDto> apply(String id) {
         log.info("\n***** Getting project by Id: {} *****\n", id);
         return repository
                 .findById(id)

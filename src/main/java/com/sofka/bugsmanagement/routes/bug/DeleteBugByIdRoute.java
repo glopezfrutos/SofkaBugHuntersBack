@@ -1,6 +1,6 @@
-package com.sofka.bugsmanagement.routes.project;
+package com.sofka.bugsmanagement.routes.bug;
 
-import com.sofka.bugsmanagement.usecases.project.DeleteProjectByIdUseCase;
+import com.sofka.bugsmanagement.usecases.bug.DeleteBugByIdUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -14,14 +14,11 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
 @Configuration
-public class DeleteProjectByIdRoute {
-
+public class DeleteBugByIdRoute {
     @Bean
-    public RouterFunction<ServerResponse> deleteProductByIdRouter(DeleteProjectByIdUseCase deleteProjectByIdUseCase) {
-        return route(DELETE("/api/v1/project/{id}").and(accept(MediaType.APPLICATION_JSON)),
+    RouterFunction<ServerResponse> deleteBugByIdRouter(DeleteBugByIdUseCase useCase){
+        return route(DELETE("/api/v1/bug/{id}").and(accept(MediaType.APPLICATION_JSON)),
                 request -> ServerResponse.status(HttpStatus.NO_CONTENT)
-                        .body(BodyInserters.fromPublisher(deleteProjectByIdUseCase.apply(request.pathVariable("id")), Void.class)));
+                        .body(BodyInserters.fromPublisher(useCase.apply(request.pathVariable("id")),Void.class)));
     }
 }
-
-

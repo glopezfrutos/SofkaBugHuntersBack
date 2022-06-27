@@ -1,7 +1,7 @@
 package com.sofka.bugsmanagement.usecases.project;
 
 import com.sofka.bugsmanagement.mappers.ProjectMapper;
-import com.sofka.bugsmanagement.model.project.ProjectDTO;
+import com.sofka.bugsmanagement.model.project.ProjectDto;
 import com.sofka.bugsmanagement.repositories.IProjectRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,8 +20,8 @@ public class CreateProjectUseCase {
     private final IProjectRepository projectRepository;
     private final ProjectMapper projectMapper;
 
-    public Mono<ProjectDTO> apply(@Valid ProjectDTO projectDTO) {
-        log.info("*** New Project created *** Id: {}", projectDTO.getId());
+    public Mono<ProjectDto> apply(@Valid ProjectDto projectDTO) {
+        log.info("\n***** New Project created. Id: {} *****\n", projectDTO.getId());
         return projectRepository
                 .save(projectMapper.convertDtoToEntity().apply(projectDTO))
                 .map(project -> projectMapper

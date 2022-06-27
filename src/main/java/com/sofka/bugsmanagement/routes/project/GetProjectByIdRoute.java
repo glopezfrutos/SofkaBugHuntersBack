@@ -1,6 +1,6 @@
 package com.sofka.bugsmanagement.routes.project;
 
-import com.sofka.bugsmanagement.model.project.ProjectDTO;
+import com.sofka.bugsmanagement.model.project.ProjectDto;
 import com.sofka.bugsmanagement.usecases.project.GetProjectByIdUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +24,7 @@ public class GetProjectByIdRoute {
                 request -> ServerResponse
                         .status(HttpStatus.OK)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .body(BodyInserters.fromPublisher(useCase.apply(request.pathVariable("id")), ProjectDTO.class))
+                        .body(BodyInserters.fromPublisher(useCase.apply(request.pathVariable("id")), ProjectDto.class))
         );
     }
 }
