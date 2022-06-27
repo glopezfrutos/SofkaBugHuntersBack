@@ -1,9 +1,8 @@
-package com.sofka.bugsmanagement.routes.project;
+package com.sofka.bugsmanagement.routes.bug;
 
-import com.sofka.bugsmanagement.model.project.ProjectDTO;
-import com.sofka.bugsmanagement.model.project.ProjectDetailsDto;
-import com.sofka.bugsmanagement.usecases.project.GetProjectByIdUseCase;
-import com.sofka.bugsmanagement.usecases.project.GetProjectDetailsByIdUseCase;
+import com.sofka.bugsmanagement.model.bug.BugDto;
+import com.sofka.bugsmanagement.usecases.bug.GetBugByIdUseCase;
+import com.sofka.bugsmanagement.usecases.bug.GetBugByTaskIdUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -17,16 +16,16 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
 @Configuration
-public class GetProjectDetailsByIdRoute {
+public class GetBugByIdRoute {
     @Bean
-    public RouterFunction<ServerResponse> getProjectDetailsByIdRouter(GetProjectDetailsByIdUseCase useCase){
+    public RouterFunction<ServerResponse> getBugByIdRouter(GetBugByIdUseCase useCase){
         return route(
-                GET("/api/v1/project/{id}/details")
+                GET("/api/v1/bug/{id}")
                         .and(accept(MediaType.APPLICATION_JSON)),
                 request -> ServerResponse
                         .status(HttpStatus.OK)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .body(BodyInserters.fromPublisher(useCase.apply(request.pathVariable("id")), ProjectDetailsDto.class))
+                        .body(BodyInserters.fromPublisher(useCase.apply(request.pathVariable("id")), BugDto.class))
         );
     }
 }

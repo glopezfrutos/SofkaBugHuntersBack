@@ -1,7 +1,6 @@
 package com.sofka.bugsmanagement.routes.bug;
 
 import com.sofka.bugsmanagement.usecases.bug.DeleteBugByIdUseCase;
-import com.sofka.bugsmanagement.usecases.task.DeleteTaskByIdUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -17,9 +16,9 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 @Configuration
 public class DeleteBugByIdRoute {
     @Bean
-    RouterFunction<ServerResponse> deleteBugByIdRouter(DeleteBugByIdUseCase deleteBugByIdUseCase){
+    RouterFunction<ServerResponse> deleteBugByIdRouter(DeleteBugByIdUseCase useCase){
         return route(DELETE("/api/v1/bug/{id}").and(accept(MediaType.APPLICATION_JSON)),
                 request -> ServerResponse.status(HttpStatus.NO_CONTENT)
-                        .body(BodyInserters.fromPublisher(deleteBugByIdUseCase.apply(request.pathVariable("id")),Void.class)));
+                        .body(BodyInserters.fromPublisher(useCase.apply(request.pathVariable("id")),Void.class)));
     }
 }

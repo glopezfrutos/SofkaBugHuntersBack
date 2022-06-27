@@ -1,6 +1,6 @@
 package com.sofka.bugsmanagement.routes.project;
 
-import com.sofka.bugsmanagement.model.project.ProjectDTO;
+import com.sofka.bugsmanagement.model.project.ProjectDto;
 import com.sofka.bugsmanagement.usecases.project.GetProjectsUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +23,7 @@ public class GetAllProjectsRoute {
                 request -> ServerResponse
                         .status(HttpStatus.OK)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .body(BodyInserters.fromPublisher(getProjectsUseCase.get(), ProjectDTO.class))
+                        .body(BodyInserters.fromPublisher(getProjectsUseCase.get(), ProjectDto.class))
         );
     }
 }

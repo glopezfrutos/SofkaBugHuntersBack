@@ -1,10 +1,7 @@
 package com.sofka.bugsmanagement.routes.task;
 
-import com.sofka.bugsmanagement.model.project.ProjectDTO;
-import com.sofka.bugsmanagement.model.task.TaskDTO;
-import com.sofka.bugsmanagement.usecases.project.GetProjectByIdUseCase;
+import com.sofka.bugsmanagement.model.task.TaskDto;
 import com.sofka.bugsmanagement.usecases.task.GetTaskByIdUseCase;
-import com.sofka.bugsmanagement.usecases.task.GetTaskUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -27,7 +24,7 @@ public class GetTaskByIdRoute {
                 request -> ServerResponse
                         .status(HttpStatus.OK)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .body(BodyInserters.fromPublisher(useCase.apply(request.pathVariable("id")), TaskDTO.class))
+                        .body(BodyInserters.fromPublisher(useCase.apply(request.pathVariable("id")), TaskDto.class))
         );
     }
 }

@@ -13,14 +13,13 @@ import java.util.function.Function;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class CreateUserUseCase implements Function<UserDto, Mono<UserDto>> {
+public class CreateUserUseCase {
 
     private final IUserRepository repository;
     private final UserMapper mapper;
 
-    @Override
     public Mono<UserDto> apply(UserDto userDto) {
-        log.info("*** New user created: {} ***", userDto.getEmail());
+        log.info("\n***** New user created: {} *****\n", userDto.getEmail());
         return repository
                 .save(mapper.convertDtoToEntity().apply(userDto))
                 .map(dto -> mapper

@@ -8,20 +8,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
-import java.util.function.Supplier;
-
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class GetBugsUseCase implements Supplier<Flux<BugDto>> {
+public class GetBugsUseCase {
 
     private final IBugRepository repository;
     private final BugMapper mapper;
 
-
-    @Override
     public Flux<BugDto> get() {
-        log.info("*** Get all bugs ***");
+        log.info("\n***** Getting all bugs  *****\n");
         return repository
                 .findAll()
                 .map(dto -> mapper

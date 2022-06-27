@@ -1,9 +1,10 @@
 package com.sofka.bugsmanagement.usecases.project;
 
 import com.sofka.bugsmanagement.mappers.ProjectMapper;
-import com.sofka.bugsmanagement.model.project.ProjectDTO;
+import com.sofka.bugsmanagement.model.project.ProjectDto;
 import com.sofka.bugsmanagement.repositories.IProjectRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
@@ -11,13 +12,15 @@ import java.util.function.Function;
 
 @Service
 @RequiredArgsConstructor
-public class GetProjectByIdUseCase implements Function<String, Mono<ProjectDTO>> {
+@Slf4j
+public class GetProjectByIdUseCase implements Function<String, Mono<ProjectDto>> {
 
     private final IProjectRepository repository;
     private final ProjectMapper mapper;
 
     @Override
-    public Mono<ProjectDTO> apply(String id) {
+    public Mono<ProjectDto> apply(String id) {
+        log.info("\n***** Getting project by Id: {} *****\n", id);
         return repository
                 .findById(id)
                 .map(entity -> mapper.convertEntityToDto().apply(entity));
