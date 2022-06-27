@@ -1,11 +1,17 @@
 package com.sofka.bugsmanagement.config.security;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
+import org.springframework.security.config.web.server.ServerHttpSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.server.SecurityWebFilterChain;
 
-//@Configuration
-//@EnableWebFluxSecurity
+@Configuration
+@EnableWebFluxSecurity
 public class WebSecurityConfig {
-/*
+
     @Bean
     SecurityWebFilterChain springWebFilter(ServerHttpSecurity http) {
 
@@ -13,20 +19,8 @@ public class WebSecurityConfig {
                 .jwt();
         return http.csrf().disable()
                 .authorizeExchange()
-                .pathMatchers(HttpMethod.GET,"/").permitAll()
-                .pathMatchers("webjars/swagger-ui/index.html#/").permitAll()
-
-                .pathMatchers(HttpMethod.GET,"/login").permitAll()
-                .pathMatchers("/create").permitAll()
-                .pathMatchers("/route-no-auth").permitAll()
-                .pathMatchers(HttpMethod.GET, "/no-auth").permitAll()
-                .pathMatchers(HttpMethod.GET,"/role-admin").hasAuthority("ADMIN")
-                .pathMatchers(HttpMethod.GET,"/role-admincito").hasAuthority("ADMIN")
-                .pathMatchers(HttpMethod.GET,"/route-auth").hasAuthority("ADMIN")
-                .pathMatchers(HttpMethod.GET,"/role-creator").hasAuthority("CREATOR")
-                .anyExchange().permitAll()
-                .and()
-                .formLogin()
+                .pathMatchers(HttpMethod.GET,"/api/v1/project").permitAll()
+                .anyExchange().authenticated()
                 .and().build();
 
     }
@@ -35,5 +29,5 @@ public class WebSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
- */
+
 }
