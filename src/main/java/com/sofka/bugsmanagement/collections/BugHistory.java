@@ -1,5 +1,6 @@
 package com.sofka.bugsmanagement.collections;
 
+
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,11 +12,15 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
-@Document(collection = "bug")
-public class Bug {
+@Document(collection="bug-history")
+public class BugHistory {
 
     @Id
     private String id;
+
+    private String bugHistoryId;
+
+    private String date;
 
     private String projectId;
 
@@ -27,7 +32,7 @@ public class Bug {
 
     private String createdAt; // YYYY-MM-DD
 
-    private String responsible;
+    private Set<String> responsible;
 
     private String contextInfo; // max 1000 characters
 
@@ -51,5 +56,6 @@ public class Bug {
 
     private String solutionResponsible;
 
-    private String developerObservations; // 5000 max characters
+    private String developerObservations;
+
 }
