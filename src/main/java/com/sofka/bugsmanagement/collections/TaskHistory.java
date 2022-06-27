@@ -11,10 +11,12 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
-@Document(collection = "task")
-public class Task {
+@Document(collection="task-history")
+public class TaskHistory {
     @Id
     private String id;
+    private String taskHistoryId;
+    private String date;
     private String projectId;
     private String projectName;
     private String name;
@@ -26,3 +28,4 @@ public class Task {
     private Set<String> responsibleEmail;
     private String status;
 }
+
