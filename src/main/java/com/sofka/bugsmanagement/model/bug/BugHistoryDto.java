@@ -14,6 +14,10 @@ public class BugHistoryDto {
     @Id
     private String id;
 
+    private String bugHistoryId;
+
+    private String date;
+
     private String projectId;
 
     private String taskId;
@@ -24,7 +28,7 @@ public class BugHistoryDto {
 
     private String createdAt; // YYYY-MM-DD
 
-    private Set<String> responsible;
+    private String responsible;
 
     private String contextInfo; // max 1000 characters
 
