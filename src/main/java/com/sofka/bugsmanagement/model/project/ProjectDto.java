@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Data
-public class ProjectDTO {
+public class ProjectDto {
     private String id;
     @NotBlank
     @Size(message= "Project name must have maximum 50 characters", max=50)

@@ -10,7 +10,6 @@ import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
 
 import javax.validation.Valid;
-import java.util.function.Function;
 
 @Service
 @Validated
@@ -21,7 +20,7 @@ public class CreateBugUseCase {
     private final BugMapper mapper;
 
     public Mono<BugDto> apply(@Valid BugDto bugDto) {
-        log.info("*** New Bug created *** Id: {}", bugDto.getId());
+        log.info("\n***** New Bug created Id: {} *****\n", bugDto.getId());
         return repository
                 .save(mapper.convertDtoToEntity().apply(bugDto))
                 .map(dto -> mapper

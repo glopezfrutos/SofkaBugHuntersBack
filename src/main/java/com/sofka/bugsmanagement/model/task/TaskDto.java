@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Data
-public class TaskDTO {
+public class TaskDto {
 
 
     @Size(message="Task ID must have 50 characters as maximum", max=50)
