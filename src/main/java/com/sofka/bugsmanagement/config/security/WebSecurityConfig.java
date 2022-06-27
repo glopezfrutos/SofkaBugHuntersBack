@@ -20,6 +20,12 @@ public class WebSecurityConfig {
         return http.csrf().disable()
                 .authorizeExchange()
                 .pathMatchers(HttpMethod.GET,"/api/v1/project").permitAll()
+                .pathMatchers(HttpMethod.GET,"/api/v1/bug").authenticated()
+                .pathMatchers(HttpMethod.GET,"/api/v1/task").hasAnyAuthority("READER","TESTER","ADMIN")
+                .pathMatchers("/api/v1/project").hasAnyAuthority("TESTER","ADMIN")
+                .pathMatchers("/api/v1/bug").hasAnyAuthority("TESTER","ADMIN")
+                .pathMatchers("/api/v1/task").hasAnyAuthority("TESTER","ADMIN")
+                .pathMatchers("/api/v1/user").hasAnyAuthority("ADMIN")
                 .anyExchange().authenticated()
                 .and().build();
 
