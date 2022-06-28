@@ -7,26 +7,31 @@ import org.springframework.security.config.annotation.web.reactive.EnableWebFlux
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.server.SecurityWebFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.reactive.CorsConfigurationSource;
+import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 import org.springframework.web.reactive.config.CorsRegistration;
 import org.springframework.web.reactive.config.CorsRegistry;
 import org.springframework.web.reactive.config.WebFluxConfigurer;
 import org.springframework.web.reactive.config.WebFluxConfigurerComposite;
 
+import java.util.Arrays;
+
 @Configuration
 @EnableWebFluxSecurity
-public class WebSecurityConfig implements WebFluxConfigurer{
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-
-        registry.addMapping("/api/**")
-                .allowedOrigins("**")
-                .allowedMethods("GET","PUT", "DELETE")
-                .allowedHeaders("**")
-                .exposedHeaders("**")
-                .allowCredentials(true).maxAge(3600);
-
-        // Add more mappings...
+public class WebSecurityConfig {
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.applyPermitDefaultValues();
+        configuration.setAllowedOrigins(Arrays.asList("*"));
+        configuration.setAllowedMethods(Arrays.asList("*"));
+        configuration.setAllowedHeaders(Arrays.asList("*"));
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
+
 
 
 
@@ -36,7 +41,7 @@ public class WebSecurityConfig implements WebFluxConfigurer{
 
         http.oauth2ResourceServer()
                 .jwt();
-        return http.cors().disable()
+        return http
                 .csrf().disable()
                 .authorizeExchange()
                 .pathMatchers(HttpMethod.GET,"/api/v1/project").authenticated()
