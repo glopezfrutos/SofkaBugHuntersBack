@@ -1,8 +1,8 @@
-package com.sofka.bugsmanagement.usecases.project;
+package com.sofka.bugsmanagement.usecases.history;
 
 import com.sofka.bugsmanagement.mappers.ProjectHistoryMapper;
-import com.sofka.bugsmanagement.model.project.ProjectHistoryDto;
-import com.sofka.bugsmanagement.repositories.IProjectHistoryRepository;
+import com.sofka.bugsmanagement.model.history.ProjectHistoryDto;
+import com.sofka.bugsmanagement.repositories.history.IProjectHistoryRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

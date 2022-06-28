@@ -1,9 +1,7 @@
-package com.sofka.bugsmanagement.routes.bug;
+package com.sofka.bugsmanagement.routes.history;
 
-import com.sofka.bugsmanagement.model.bug.BugDto;
-import com.sofka.bugsmanagement.model.bug.BugHistoryDto;
-import com.sofka.bugsmanagement.usecases.bug.CreateBugHistoryUseCase;
-import com.sofka.bugsmanagement.usecases.bug.CreateBugUseCase;
+import com.sofka.bugsmanagement.model.history.TaskHistoryDto;
+import com.sofka.bugsmanagement.usecases.history.CreateTaskHistoryUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -15,14 +13,13 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
-
-public class PostBugHistoryRoute {
-
+@Configuration
+public class PostTaskHistoryRoute {
     @Bean
-    public RouterFunction<ServerResponse> createBugHistoryRouter(CreateBugHistoryUseCase useCase){
+    public RouterFunction<ServerResponse> createTaskHistoryRouter(CreateTaskHistoryUseCase useCase){
         return route(
-                POST("/api/v1/history-bug").and(accept(MediaType.APPLICATION_JSON)),
-                request -> request.bodyToMono(BugHistoryDto.class).flatMap(useCase::apply)
+                POST("/api/v1/history/task").and(accept(MediaType.APPLICATION_JSON)),
+                request -> request.bodyToMono(TaskHistoryDto.class).flatMap(useCase::apply)
                         .flatMap(dto -> ServerResponse.status(HttpStatus.CREATED).contentType(MediaType.APPLICATION_JSON).bodyValue(dto)));
     }
 }

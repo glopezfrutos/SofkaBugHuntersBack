@@ -1,11 +1,9 @@
-package com.sofka.bugsmanagement.collections;
+package com.sofka.bugsmanagement.collections.history;
 
 
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -16,9 +14,9 @@ import java.util.Set;
 public class BugHistory {
 
     @Id
-    private String id;
-
     private String bugHistoryId;
+
+    private String id;
 
     private String date;
 

@@ -1,5 +1,6 @@
-package com.sofka.bugsmanagement.model.task;
+package com.sofka.bugsmanagement.model.history;
 
+import com.sofka.bugsmanagement.model.task.TaskStatus;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -12,8 +13,8 @@ import java.util.Set;
 public class TaskHistoryDto {
 
     @Id
-    private String id;
     private String taskHistoryId;
+    private String id;
     private String date;
     private String projectId;
     private String projectName;

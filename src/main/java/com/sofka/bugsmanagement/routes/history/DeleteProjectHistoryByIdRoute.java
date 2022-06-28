@@ -1,7 +1,6 @@
-package com.sofka.bugsmanagement.routes.project;
+package com.sofka.bugsmanagement.routes.history;
 
-import com.sofka.bugsmanagement.usecases.bug.DeleteBugByIdUseCase;
-import com.sofka.bugsmanagement.usecases.project.DeleteProjectHistoryByIdUseCase;
+import com.sofka.bugsmanagement.usecases.history.DeleteProjectHistoryByIdUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -19,7 +18,7 @@ public class DeleteProjectHistoryByIdRoute {
 
     @Bean
     RouterFunction<ServerResponse> deleteProjectHistoryByIdRouter(DeleteProjectHistoryByIdUseCase useCase){
-        return route(DELETE("/api/v1/history-project/{id}").and(accept(MediaType.APPLICATION_JSON)),
+        return route(DELETE("/api/v1/history/project/{projectHistoryId}").and(accept(MediaType.APPLICATION_JSON)),
                 request -> ServerResponse.status(HttpStatus.NO_CONTENT)
                         .body(BodyInserters.fromPublisher(useCase.apply(request.pathVariable("projectHistoryId")),Void.class)));
     }

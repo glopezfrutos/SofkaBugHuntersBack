@@ -1,7 +1,7 @@
-package com.sofka.bugsmanagement.routes.project;
+package com.sofka.bugsmanagement.routes.history;
 
-import com.sofka.bugsmanagement.model.project.ProjectHistoryDto;
-import com.sofka.bugsmanagement.usecases.project.CreateProjectHistoryUseCase;
+import com.sofka.bugsmanagement.model.history.ProjectHistoryDto;
+import com.sofka.bugsmanagement.usecases.history.CreateProjectHistoryUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ public class PostProjectHistoryRoute {
     @Bean
     public RouterFunction<ServerResponse> createProjectHistoryRouter(CreateProjectHistoryUseCase useCase){
         return route(
-                POST("/api/v1/history-project").and(accept(MediaType.APPLICATION_JSON)),
+                POST("/api/v1/history/project").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(ProjectHistoryDto.class).flatMap(useCase::apply)
                         .flatMap(dto -> ServerResponse.status(HttpStatus.CREATED).contentType(MediaType.APPLICATION_JSON).bodyValue(dto)));
     }

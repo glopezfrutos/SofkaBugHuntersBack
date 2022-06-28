@@ -1,6 +1,6 @@
-package com.sofka.bugsmanagement.usecases.task;
+package com.sofka.bugsmanagement.usecases.history;
 
-import com.sofka.bugsmanagement.repositories.ITaskHistoryRepository;
+import com.sofka.bugsmanagement.repositories.history.ITaskHistoryRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

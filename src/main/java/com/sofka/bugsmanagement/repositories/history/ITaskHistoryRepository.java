@@ -1,6 +1,6 @@
-package com.sofka.bugsmanagement.repositories;
+package com.sofka.bugsmanagement.repositories.history;
 
-import com.sofka.bugsmanagement.collections.TaskHistory;
+import com.sofka.bugsmanagement.collections.history.TaskHistory;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Repository;
 

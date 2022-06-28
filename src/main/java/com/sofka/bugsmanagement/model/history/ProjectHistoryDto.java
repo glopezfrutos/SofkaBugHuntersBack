@@ -1,5 +1,6 @@
-package com.sofka.bugsmanagement.model.project;
+package com.sofka.bugsmanagement.model.history;
 
+import com.sofka.bugsmanagement.model.project.ProjectStatus;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -12,8 +13,8 @@ import java.util.Set;
 public class ProjectHistoryDto {
 
     @Id
-    private String id;
     private String projectHistoryId;
+    private String id;
     private String date;
     private String name;
     private String createdAt;

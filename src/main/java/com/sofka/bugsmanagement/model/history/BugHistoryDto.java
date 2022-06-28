@@ -1,20 +1,20 @@
-package com.sofka.bugsmanagement.model.bug;
+package com.sofka.bugsmanagement.model.history;
 
+import com.sofka.bugsmanagement.model.bug.BugStatus;
+import com.sofka.bugsmanagement.model.bug.Level;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
-
-import java.util.Set;
 
 @Getter
 @Setter
 public class BugHistoryDto {
 
     @Id
-    private String id;
-
     private String bugHistoryId;
+
+    private String id;
 
     private String date;
 

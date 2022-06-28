@@ -1,8 +1,8 @@
-package com.sofka.bugsmanagement.usecases.bug;
+package com.sofka.bugsmanagement.usecases.history;
 
 import com.sofka.bugsmanagement.mappers.BugHistoryMapper;
-import com.sofka.bugsmanagement.model.bug.BugHistoryDto;
-import com.sofka.bugsmanagement.repositories.IBugHistoryRepository;
+import com.sofka.bugsmanagement.model.history.BugHistoryDto;
+import com.sofka.bugsmanagement.repositories.history.IBugHistoryRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

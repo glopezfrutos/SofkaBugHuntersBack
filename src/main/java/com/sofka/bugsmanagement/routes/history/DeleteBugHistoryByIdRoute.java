@@ -1,7 +1,6 @@
-package com.sofka.bugsmanagement.routes.bug;
+package com.sofka.bugsmanagement.routes.history;
 
-import com.sofka.bugsmanagement.usecases.bug.DeleteBugByIdUseCase;
-import com.sofka.bugsmanagement.usecases.bug.DeleteBugHistoryByIdUseCase;
+import com.sofka.bugsmanagement.usecases.history.DeleteBugHistoryByIdUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -18,7 +17,7 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 public class DeleteBugHistoryByIdRoute {
     @Bean
     RouterFunction<ServerResponse> deleteBugHistoryByIdRouter(DeleteBugHistoryByIdUseCase useCase){
-        return route(DELETE("/api/v1/history-bug/{id}").and(accept(MediaType.APPLICATION_JSON)),
+        return route(DELETE("/api/v1/history/bug/{bugHistoryId}").and(accept(MediaType.APPLICATION_JSON)),
                 request -> ServerResponse.status(HttpStatus.NO_CONTENT)
                         .body(BodyInserters.fromPublisher(useCase.apply(request.pathVariable("bugHistoryId")),Void.class)));
     }
