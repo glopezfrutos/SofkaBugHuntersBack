@@ -38,20 +38,17 @@ public class WebSecurityConfig {
 
     @Bean
     SecurityWebFilterChain springWebFilter(ServerHttpSecurity http) {
-
-        http.oauth2ResourceServer()
-                .jwt();
         return http
                 .csrf().disable()
                 .authorizeExchange()
-                .pathMatchers(HttpMethod.GET,"/api/v1/project").authenticated()
-                .pathMatchers(HttpMethod.GET,"/api/v1/bug").authenticated()
-                .pathMatchers(HttpMethod.GET,"/api/v1/task").hasAnyAuthority("READER","TESTER","ADMIN")
-                .pathMatchers("/api/v1/project").hasAnyAuthority("TESTER","ADMIN")
-                .pathMatchers("/api/v1/bug").hasAnyAuthority("TESTER","ADMIN")
-                .pathMatchers("/api/v1/task").hasAnyAuthority("TESTER","ADMIN")
-                .pathMatchers("/api/v1/user").hasAnyAuthority("ADMIN")
-                .anyExchange().authenticated()
+                .pathMatchers(HttpMethod.GET,"/api/v1/project").hasAnyAuthority("READER","TESTER","ADMIN","DEVELOPER")
+                .pathMatchers(HttpMethod.GET,"/api/v1/bug").hasAnyAuthority("READER","TESTER","ADMIN","DEVELOPER")
+                .pathMatchers(HttpMethod.GET,"/api/v1/task").hasAnyAuthority("READER","TESTER","ADMIN","DEVELOPER")
+                .pathMatchers("/api/v1/project").hasAnyAuthority("TESTER","ADMIN","DEVELOPER")
+                .pathMatchers("/api/v1/bug").hasAnyAuthority("TESTER","ADMIN","DEVELOPER")
+                .pathMatchers("/api/v1/task").hasAnyAuthority("TESTER","ADMIN","DEVELOPER")
+                .pathMatchers("/api/v1/user").permitAll()
+                .and().httpBasic()
                 .and().build();
 
     }
