@@ -35,7 +35,7 @@ public class TaskDto {
     private String description;
 
     @Valid
-    @NotEmpty(message="Additional Filed must not be empty")
+    @NotNull(message="Additional Filed must not be empty")
     private Set<String> additionalFilesId;
 
     @Valid
