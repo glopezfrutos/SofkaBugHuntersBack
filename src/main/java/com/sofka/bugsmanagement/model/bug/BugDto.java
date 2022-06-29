@@ -35,6 +35,8 @@ public class BugDto {
     private String additionalFile;
     private String severity; //(Bajo; Medio; Alto)
     private String priority; //(Bajo; Medio; Alto)
+
+    private String clientImportance; //(Bajo; Medio; Alto)
     private String status; // (asignado, cancelado, rechazado, cerrado con defectos, reinsidente, solucionado)
     @NotNull
     @Size(message= "Bug conclusion must have maximum 5000 characters", max=5000)
@@ -77,6 +79,15 @@ public class BugDto {
 
     public void setPriority(Level level) {
         this.priority = level.toValue();
+    }
+
+    @Transient
+    public Level getClientImportance() {
+        return Level.fromValue(clientImportance);
+    }
+
+    public void setClientImportance(Level level) {
+        this.clientImportance = level.toValue();
     }
 
     @Transient
