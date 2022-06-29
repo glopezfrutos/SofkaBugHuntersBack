@@ -33,6 +33,7 @@ public class BugDto {
     private String contextInfo; // max 1000 characters
     @NotNull
     private String lifecycle; //(Planificación; Análisis; Diseño; Implementación; Pruebas; Despliegue; Uso o mantenimiento).
+    @NotNull
     private String additionalFile;
     private String severity; //(Bajo; Medio; Alto)
     private String priority; //(Bajo; Medio; Alto)
