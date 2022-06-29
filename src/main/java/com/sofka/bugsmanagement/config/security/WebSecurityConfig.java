@@ -37,14 +37,15 @@ public class WebSecurityConfig {
         return http
                 .csrf().disable()
                 .authorizeExchange()
-                .pathMatchers(HttpMethod.GET,"/api/v1/project").hasAnyAuthority("READER", "TESTER","ADMIN","DEVELOPER")
-                .pathMatchers(HttpMethod.GET,"/api/v1/bug").hasAnyAuthority("READER","TESTER","ADMIN","DEVELOPER")
-                .pathMatchers(HttpMethod.GET,"/api/v1/task").hasAnyAuthority("READER","TESTER","ADMIN","DEVELOPER")
-                .pathMatchers(HttpMethod.POST,"/api/v1/user").permitAll()
-                .pathMatchers(HttpMethod.GET,"/api/v1/user").hasAnyAuthority("ADMIN")
-                .pathMatchers("/api/v1/project").hasAnyAuthority("TESTER","ADMIN","DEVELOPER")
-                .pathMatchers("/api/v1/bug").hasAnyAuthority("TESTER","ADMIN","DEVELOPER")
-                .pathMatchers("/api/v1/task").hasAnyAuthority("TESTER","ADMIN","DEVELOPER")
+                .pathMatchers(HttpMethod.GET,"/api/v1/project/**").hasAnyAuthority("READER", "TESTER","ADMIN","DEVELOPER")
+                .pathMatchers(HttpMethod.GET,"/api/v1/project-paged/**").hasAnyAuthority("READER", "TESTER","ADMIN","DEVELOPER")
+                .pathMatchers(HttpMethod.GET,"/api/v1/bug/**").hasAnyAuthority("READER","TESTER","ADMIN","DEVELOPER")
+                .pathMatchers(HttpMethod.GET,"/api/v1/task/**").hasAnyAuthority("READER","TESTER","ADMIN","DEVELOPER")
+                .pathMatchers(HttpMethod.POST,"/api/v1/user/**").permitAll()
+                .pathMatchers(HttpMethod.GET,"/api/v1/user/**").hasAnyAuthority("ADMIN")
+                .pathMatchers("/api/v1/project/**").hasAnyAuthority("TESTER","ADMIN","DEVELOPER")
+                .pathMatchers("/api/v1/bug/**").hasAnyAuthority("TESTER","ADMIN","DEVELOPER")
+                .pathMatchers("/api/v1/task/**").hasAnyAuthority("TESTER","ADMIN","DEVELOPER")
                 .and().httpBasic()
                 .and().build();
 
