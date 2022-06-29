@@ -38,6 +38,8 @@ public class Bug {
 
     private String priority; //(Bajo; Medio; Alto)
 
+    private String clientImportance; //(Bajo; Medio; Alto)
+
     private String status; // (asignado, cancelado, rechazado, cerrado con defectos, reinsidente, solucionado)
 
     private String conclusion; // 5000 max characters
