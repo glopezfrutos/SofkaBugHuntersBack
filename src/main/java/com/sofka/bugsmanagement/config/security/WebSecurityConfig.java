@@ -10,10 +10,6 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.reactive.CorsConfigurationSource;
 import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
-import org.springframework.web.reactive.config.CorsRegistration;
-import org.springframework.web.reactive.config.CorsRegistry;
-import org.springframework.web.reactive.config.WebFluxConfigurer;
-import org.springframework.web.reactive.config.WebFluxConfigurerComposite;
 
 import java.util.Arrays;
 
@@ -41,13 +37,14 @@ public class WebSecurityConfig {
         return http
                 .csrf().disable()
                 .authorizeExchange()
-                .pathMatchers(HttpMethod.GET,"/api/v1/project").hasAnyAuthority("READER","TESTER","ADMIN","DEVELOPER")
+                .pathMatchers(HttpMethod.GET,"/api/v1/project").hasAnyAuthority("READER", "TESTER","ADMIN","DEVELOPER")
                 .pathMatchers(HttpMethod.GET,"/api/v1/bug").hasAnyAuthority("READER","TESTER","ADMIN","DEVELOPER")
                 .pathMatchers(HttpMethod.GET,"/api/v1/task").hasAnyAuthority("READER","TESTER","ADMIN","DEVELOPER")
+                .pathMatchers(HttpMethod.POST,"/api/v1/user").permitAll()
+                .pathMatchers(HttpMethod.GET,"/api/v1/user").hasAnyAuthority("ADMIN")
                 .pathMatchers("/api/v1/project").hasAnyAuthority("TESTER","ADMIN","DEVELOPER")
                 .pathMatchers("/api/v1/bug").hasAnyAuthority("TESTER","ADMIN","DEVELOPER")
                 .pathMatchers("/api/v1/task").hasAnyAuthority("TESTER","ADMIN","DEVELOPER")
-                .pathMatchers("/api/v1/user").permitAll()
                 .and().httpBasic()
                 .and().build();
 

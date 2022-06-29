@@ -1,9 +1,7 @@
 package com.sofka.bugsmanagement.config.security.userdatails;
 
 
-import com.sofka.bugsmanagement.collections.User;
 import com.sofka.bugsmanagement.model.user.UserDto;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -58,6 +56,6 @@ public class MyUserDetails implements UserDetails{
 
     @Override
     public boolean isEnabled() {
-        return user.isEnabled();
+        return true;
     }
 }
