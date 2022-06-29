@@ -1,7 +1,7 @@
 package com.sofka.bugsmanagement.routes.user;
 
 import com.sofka.bugsmanagement.model.user.UserDto;
-import com.sofka.bugsmanagement.usecases.user.CreateUserUseCase;
+import com.sofka.bugsmanagement.usecases.user.LogInOrSignInUserUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -16,12 +16,12 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 @Configuration
 public class PostUserRoute {
     @Bean
-    public RouterFunction<ServerResponse> createUserRouter(CreateUserUseCase useCase){
+    public RouterFunction<ServerResponse> createUserRouter(LogInOrSignInUserUseCase useCase){
         return route(
                 POST("/api/v1/user").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(UserDto.class)
                         .flatMap(useCase::apply)
-                        .flatMap(dto -> ServerResponse.status(HttpStatus.CREATED)
+                        .flatMap(dto -> ServerResponse.status(HttpStatus.OK)
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .bodyValue(dto))
         );
