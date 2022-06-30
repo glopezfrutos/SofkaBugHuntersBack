@@ -56,4 +56,26 @@ public class BugHistory {
 
     private String developerObservations;
 
+    public BugHistory( String id, String date, String projectId, String taskId, String title, String description, String createdAt, String responsible, String contextInfo, String lifecycle, String additionalFile, String severity, String priority, String status, String conclusion, String globalIssues, String references, String closedAt, String solutionResponsible, String developerObservations) {
+        this.id = id;
+        this.date = date;
+        this.projectId = projectId;
+        this.taskId = taskId;
+        this.title = title;
+        this.description = description;
+        this.createdAt = createdAt;
+        this.responsible = responsible;
+        this.contextInfo = contextInfo;
+        this.lifecycle = lifecycle;
+        this.additionalFile = additionalFile;
+        this.severity = severity;
+        this.priority = priority;
+        this.status = status;
+        this.conclusion = conclusion;
+        this.globalIssues = globalIssues;
+        this.references = references;
+        this.closedAt = closedAt;
+        this.solutionResponsible = solutionResponsible;
+        this.developerObservations = developerObservations;
+    }
 }
