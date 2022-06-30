@@ -1,7 +1,6 @@
 package com.sofka.bugsmanagement.routes.dashboard;
 
 import com.sofka.bugsmanagement.model.bug.BugDto;
-import com.sofka.bugsmanagement.model.dashboard.DashboardDto;
 import com.sofka.bugsmanagement.usecases.dashboard.GetDashboardUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
