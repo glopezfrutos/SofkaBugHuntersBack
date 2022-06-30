@@ -1,20 +1,24 @@
-package com.sofka.bugsmanagement.collections;
+package com.sofka.bugsmanagement.collections.history;
+
 
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@Document(collection = "bug")
-public class Bug {
+@Document(collection="bug-history")
+public class BugHistory {
 
     @Id
+    private String bugHistoryId;
+
     private String id;
+
+    private String date;
 
     private String projectId;
 
@@ -38,8 +42,6 @@ public class Bug {
 
     private String priority; //(Bajo; Medio; Alto)
 
-    private String clientImportance; //(Bajo; Medio; Alto)
-
     private String status; // (asignado, cancelado, rechazado, cerrado con defectos, reinsidente, solucionado)
 
     private String conclusion; // 5000 max characters
@@ -52,5 +54,6 @@ public class Bug {
 
     private String solutionResponsible;
 
-    private String developerObservations; // 5000 max characters
+    private String developerObservations;
+
 }

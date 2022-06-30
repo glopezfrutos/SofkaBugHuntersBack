@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Set;
 
@@ -26,6 +27,7 @@ public class TaskDto {
     private String name;
     private String createdAt;
     private String closedAt;
+    @NotNull
     private Set<String> tag;
 
     @NotBlank
@@ -33,7 +35,7 @@ public class TaskDto {
     private String description;
 
     @Valid
-    @NotEmpty(message="Additional Filed must not be empty")
+    @NotNull(message="Additional Filed must not be empty")
     private Set<String> additionalFilesId;
 
     @Valid
