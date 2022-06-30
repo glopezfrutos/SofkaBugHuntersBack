@@ -30,8 +30,7 @@ public class MyUserDetails implements UserDetails{
     @Override
     public String getPassword() {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(user.getEmail());
-        return encodedPassword;
+        return passwordEncoder.encode(user.getSessionId());
     }
 
     @Override
