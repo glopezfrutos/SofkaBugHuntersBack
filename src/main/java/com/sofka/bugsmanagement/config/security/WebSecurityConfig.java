@@ -41,6 +41,7 @@ public class WebSecurityConfig {
                 .pathMatchers(HttpMethod.GET,"/api/v1/project-paged/**").hasAnyAuthority("READER", "TESTER","ADMIN","DEVELOPER")
                 .pathMatchers(HttpMethod.GET,"/api/v1/bug/**").hasAnyAuthority("READER","TESTER","ADMIN","DEVELOPER")
                 .pathMatchers(HttpMethod.GET,"/api/v1/task/**").hasAnyAuthority("READER","TESTER","ADMIN","DEVELOPER")
+                .pathMatchers(HttpMethod.GET,"/api/v1/history/**").hasAnyAuthority("READER","TESTER","ADMIN","DEVELOPER")
                 .pathMatchers(HttpMethod.POST,"/api/v1/user").permitAll()
                 .pathMatchers(HttpMethod.GET,"/api/v1/user").hasAnyAuthority("ADMIN")
                 .pathMatchers("/api/v1/project/**").hasAnyAuthority("TESTER","ADMIN","DEVELOPER")
