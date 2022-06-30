@@ -48,6 +48,7 @@ public class WebSecurityConfig {
                 .pathMatchers(HttpMethod.GET, "/api/v1/bug/**").hasAnyAuthority(allRoles)
                 .pathMatchers(HttpMethod.GET, "/api/v1/task/**").hasAnyAuthority(allRoles)
                 .pathMatchers(HttpMethod.GET, "/api/v1/history/**").hasAnyAuthority(allRoles)
+                .pathMatchers(HttpMethod.GET, "/api/v1/dashboard").hasAnyAuthority(allRoles)
                 // All roles except reader
                 .pathMatchers( "/api/v1/user").hasAnyAuthority(allRolesExceptReader)
                 .pathMatchers( "/api/v1/user/**").hasAnyAuthority(allRolesExceptReader)

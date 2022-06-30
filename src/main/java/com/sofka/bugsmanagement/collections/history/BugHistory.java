@@ -1,6 +1,7 @@
 package com.sofka.bugsmanagement.collections.history;
 
 
+import com.sofka.bugsmanagement.collections.Bug;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
