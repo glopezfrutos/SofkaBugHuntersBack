@@ -30,8 +30,12 @@ public class ProjectHistoryMapper {
         return projectDto -> new ProjectHistory(projectDto.getId(),
                 LocalDate.now().toString(),
                 projectDto.getName(),
-                projectDto.getCreatedAt(), projectDto.getClosedAt(), projectDto.getTeamEmails(),projectDto.getOwners(),
-                projectDto.getDescription(),projectDto.getStatus().toString());
+                projectDto.getCreatedAt(),
+                projectDto.getClosedAt(),
+                projectDto.getTeamEmails(),
+                projectDto.getOwners(),
+                projectDto.getDescription(),
+                projectDto.getStatus().toString());
     }
 
 

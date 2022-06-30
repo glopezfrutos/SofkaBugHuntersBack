@@ -39,11 +39,11 @@ public class BugHistoryMapper {
                 bugDto.getAdditionalFile(),
                 bugDto.getSeverity().toString(),
                 bugDto.getPriority().toString(),
+                bugDto.getClientImportance().toString(),
                 bugDto.getStatus().toString(),
                 bugDto.getConclusion(),
                 bugDto.getGlobalIssues(),
                 bugDto.getReferences(),
-                bugDto.getClosedAt(),
                 bugDto.getClosedAt(),
                 bugDto.getSolutionResponsible(),
                 bugDto.getDeveloperObservations());

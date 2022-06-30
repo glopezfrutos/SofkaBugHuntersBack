@@ -19,7 +19,7 @@ public class GetBugsHistoryUseCase {
     private final BugHistoryMapper mapper;
 
     public Flux<BugHistoryDto> apply() {
-        log.info("\n***** Getting All History Project *****\n");
+        log.info("\n***** Getting All Bug History  *****\n");
         return repository
                 .findAll()
                 .map(entity -> mapper.convertEntityToDto().apply(entity));

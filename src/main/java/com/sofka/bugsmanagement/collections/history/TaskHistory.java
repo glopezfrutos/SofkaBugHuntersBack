@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Set;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -15,7 +14,6 @@ import java.util.Set;
 public class TaskHistory {
     @Id
     private String taskHistoryId;
-    private String id;
     private String date;
     private String projectId;
     private String projectName;
@@ -29,7 +27,7 @@ public class TaskHistory {
     private String status;
 
     public TaskHistory(String id, String date, String projectId, String projectName, String name, String createdAt, String closedAt, Set<String> tag, String description, Set<String> additionalFilesId, Set<String> responsibleEmail, String status) {
-        this.id = id;
+        this.taskHistoryId = id;
         this.date = date;
         this.projectId = projectId;
         this.projectName = projectName;
