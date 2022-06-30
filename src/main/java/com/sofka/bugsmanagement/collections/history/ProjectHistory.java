@@ -24,5 +24,17 @@ public class ProjectHistory {
     private Set<String> owners;
     private String description;
     private String status;
+
+    public ProjectHistory(String id, String date, String name, String createdAt, String closedAt, Set<String> teamEmails, Set<String> owners, String description, String status) {
+        this.id = id;
+        this.date = date;
+        this.name = name;
+        this.createdAt = createdAt;
+        this.closedAt = closedAt;
+        this.teamEmails = teamEmails;
+        this.owners = owners;
+        this.description = description;
+        this.status = status;
+    }
 }
 
