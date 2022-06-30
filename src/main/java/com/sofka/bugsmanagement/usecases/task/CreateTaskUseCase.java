@@ -36,6 +36,8 @@ public class CreateTaskUseCase  {
                .save(taskMapper
                        .convertDtoToEntity()
                        .apply(taskDTO))
-               .map(task -> taskMapper.convertEntityToDto().apply(task)));
+               .map(task -> taskMapper
+                       .convertEntityToDto()
+                       .apply(task)));
    }
 }

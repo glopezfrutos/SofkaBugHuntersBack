@@ -36,5 +36,6 @@ public class ProjectHistory {
         this.description = description;
         this.status = status;
     }
+
 }
 
