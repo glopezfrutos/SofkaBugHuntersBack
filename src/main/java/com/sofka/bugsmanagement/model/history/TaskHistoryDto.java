@@ -12,9 +12,7 @@ import java.util.Set;
 @Setter
 public class TaskHistoryDto {
 
-    @Id
     private String taskHistoryId;
-    private String id;
     private String date;
     private String projectId;
     private String projectName;
