@@ -1,9 +1,8 @@
 package com.sofka.bugsmanagement.mappers;
 
-import com.sofka.bugsmanagement.collections.BugHistory;
-import com.sofka.bugsmanagement.collections.ProjectHistory;
-import com.sofka.bugsmanagement.model.bug.BugHistoryDto;
-import com.sofka.bugsmanagement.model.project.ProjectHistoryDto;
+import com.sofka.bugsmanagement.collections.history.ProjectHistory;
+import com.sofka.bugsmanagement.model.history.ProjectHistoryDto;
+import com.sofka.bugsmanagement.model.project.ProjectDto;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
@@ -21,5 +20,9 @@ public class ProjectHistoryMapper {
 
     public Function<ProjectHistoryDto, ProjectHistory> convertDtoToEntity() {
         return dto -> modelMapper.map(dto, ProjectHistory.class);
+    }
+
+    public Function<ProjectDto, ProjectHistory> convertProjectDtoToProjectHistory() {
+        return projectDto -> modelMapper.map(projectDto, ProjectHistory.class);
     }
 }

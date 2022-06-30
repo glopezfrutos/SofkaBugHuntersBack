@@ -5,11 +5,9 @@ import lombok.Setter;
 import org.springframework.data.annotation.Transient;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -33,9 +31,12 @@ public class BugDto {
     private String contextInfo; // max 1000 characters
     @NotNull
     private String lifecycle; //(Planificación; Análisis; Diseño; Implementación; Pruebas; Despliegue; Uso o mantenimiento).
+    @NotNull
     private String additionalFile;
     private String severity; //(Bajo; Medio; Alto)
     private String priority; //(Bajo; Medio; Alto)
+
+    private String clientImportance; //(Bajo; Medio; Alto)
     private String status; // (asignado, cancelado, rechazado, cerrado con defectos, reinsidente, solucionado)
     @NotNull
     @Size(message= "Bug conclusion must have maximum 5000 characters", max=5000)
@@ -50,7 +51,6 @@ public class BugDto {
     private String closedAt; // YYYY-MM-DD nullable
     @NotNull
     private String solutionResponsible;
-    @NotNull
     @Size(message= "Bug developer observations must have maximum 5000 characters", max=5000)
     private String developerObservations; // 5000 max characters
 
@@ -79,6 +79,15 @@ public class BugDto {
 
     public void setPriority(Level level) {
         this.priority = level.toValue();
+    }
+
+    @Transient
+    public Level getClientImportance() {
+        return Level.fromValue(clientImportance);
+    }
+
+    public void setClientImportance(Level level) {
+        this.clientImportance = level.toValue();
     }
 
     @Transient

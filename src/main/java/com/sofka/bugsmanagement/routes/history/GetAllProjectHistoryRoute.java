@@ -1,12 +1,11 @@
-package com.sofka.bugsmanagement.routes.task;
+package com.sofka.bugsmanagement.routes.history;
 
-import com.sofka.bugsmanagement.model.task.TaskDto;
-import com.sofka.bugsmanagement.usecases.task.GetTaskUseCase;
+import com.sofka.bugsmanagement.model.history.ProjectHistoryDto;
+import com.sofka.bugsmanagement.usecases.history.GetProjectHistoryUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -16,16 +15,15 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
 @Configuration
-public class GetAllTasksRoute {
-
+public class GetAllProjectHistoryRoute {
     @Bean
-    public RouterFunction<ServerResponse> getTasksRouter(GetTaskUseCase getTaskUseCase) {
+    public RouterFunction<ServerResponse> getProjectHistoryRouter(GetProjectHistoryUseCase useCase){
         return route(
-                GET("/api/v1/task").and(accept(MediaType.APPLICATION_JSON)),
+                GET("/api/v1/history/project").and(accept(MediaType.APPLICATION_JSON)),
                 request -> ServerResponse
                         .status(HttpStatus.OK)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .body(BodyInserters.fromPublisher(getTaskUseCase.get(), TaskDto.class))
+                        .body(BodyInserters.fromPublisher(useCase.apply(), ProjectHistoryDto.class))
         );
     }
 }
