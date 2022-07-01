@@ -1,7 +1,7 @@
 package com.sofka.bugsmanagement.model.project;
 
 public enum ProjectStatus {
-    CREATED("CREATED"), ACTIVE("ACTIVE"), CANCELED("CANCELED"), PAUSED("PAUSED"), FINISHED("FINISHED");
+    CREATED("CREATED"), ACTIVE("ACTIVE"), CANCELED("CANCELED"), PAUSED("PAUSED"), FINISHED("FINISHED"), DELETED("DELETED");
     private final String value;
     ProjectStatus(String value) {
         this.value = value;
