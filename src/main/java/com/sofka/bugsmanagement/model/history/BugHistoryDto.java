@@ -11,47 +11,26 @@ import org.springframework.data.annotation.Transient;
 @Setter
 public class BugHistoryDto {
 
-    @Id
-    private String bugHistoryId;
-
     private String id;
-
     private String date;
-
     private String projectId;
-
     private String taskId;
-
     private String title; //max 50 characters.
-
     private String description; // max 500 characters
-
     private String createdAt; // YYYY-MM-DD
-
     private String responsible;
-
     private String contextInfo; // max 1000 characters
-
     private String lifecycle; //(Planificación; Análisis; Diseño; Implementación; Pruebas; Despliegue; Uso o mantenimiento).
-
     private String additionalFile;
-
     private String severity; //(Bajo; Medio; Alto)
-
     private String priority; //(Bajo; Medio; Alto)
-
+    private String clientImportance; //(Bajo; Medio; Alto)
     private String status; // (asignado, cancelado, rechazado, cerrado con defectos, reinsidente, solucionado)
-
     private String conclusion; // 5000 max characters
-
     private String globalIssues; // 5000 max characters
-
     private String references; // 5000 max characters
-
     private String closedAt; // YYYY-MM-DD nullable
-
     private String solutionResponsible;
-
     private String developerObservations;
 
     @Transient
@@ -70,6 +49,15 @@ public class BugHistoryDto {
 
     public void setPriority(Level level) {
         this.priority = level.toValue();
+    }
+
+    @Transient
+    public Level getClientImportance() {
+        return Level.fromValue(clientImportance);
+    }
+
+    public void setClientImportance(Level level) {
+        this.clientImportance = level.toValue();
     }
 
     @Transient

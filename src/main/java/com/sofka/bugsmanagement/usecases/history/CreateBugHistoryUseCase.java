@@ -18,7 +18,7 @@ public class CreateBugHistoryUseCase {
     private final BugHistoryMapper mapper;
 
     public Mono<BugHistoryDto> apply(BugHistoryDto bugHistoryDto) {
-        log.info("\n**** New Bug History created Id: {} *****\n", bugHistoryDto.getBugHistoryId());
+        log.info("\n**** New Bug History created Id: {} *****\n", bugHistoryDto.getId());
         return repository
                 .save(mapper.convertDtoToEntity().apply(bugHistoryDto))
                         .map(dto -> mapper

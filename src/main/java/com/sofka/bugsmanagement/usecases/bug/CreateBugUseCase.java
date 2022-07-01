@@ -26,9 +26,15 @@ public class CreateBugUseCase {
 
     public Mono<BugDto> apply(@Valid BugDto bugDto) {
         log.info("\n***** New Bug created Id: {} *****\n", bugDto.getId());
-        return  bugHistoryRepository.save(bugHistoryMapper.convertBugDtoToBugHistory().apply(bugDto)).then(
+        return  bugHistoryRepository
+                .save(bugHistoryMapper
+                        .convertBugDtoToBugHistory()
+                        .apply(bugDto))
+                .then(
                 repository
-                .save(mapper.convertDtoToEntity().apply(bugDto))
+                .save(mapper
+                        .convertDtoToEntity()
+                        .apply(bugDto))
                 .map(dto -> mapper
                         .convertEntityToDto()
                         .apply(dto)));

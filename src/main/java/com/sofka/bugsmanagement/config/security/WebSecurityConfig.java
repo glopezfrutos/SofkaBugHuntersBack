@@ -29,30 +29,41 @@ public class WebSecurityConfig {
     }
 
 
-
-
-
     @Bean
     SecurityWebFilterChain springWebFilter(ServerHttpSecurity http) {
+        final String adminRole = "ADMIN";
+        final String[] allRolesExceptReader = {"TESTER", "ADMIN", "DEVELOPER"};
+        final String[] allRoles = {adminRole, "READER", "TESTER", "DEVELOPER"};
+
+
         return http
                 .csrf().disable()
                 .authorizeExchange()
-                .pathMatchers(HttpMethod.GET,"/api/v1/project/**").hasAnyAuthority("READER", "TESTER","ADMIN","DEVELOPER")
-                .pathMatchers(HttpMethod.GET,"/api/v1/project-paged/**").hasAnyAuthority("READER", "TESTER","ADMIN","DEVELOPER")
-                .pathMatchers(HttpMethod.GET,"/api/v1/bug/**").hasAnyAuthority("READER","TESTER","ADMIN","DEVELOPER")
-                .pathMatchers(HttpMethod.GET,"/api/v1/task/**").hasAnyAuthority("READER","TESTER","ADMIN","DEVELOPER")
-                .pathMatchers(HttpMethod.GET,"/api/v1/history/**").hasAnyAuthority("READER","TESTER","ADMIN","DEVELOPER")
-                .pathMatchers(HttpMethod.POST,"/api/v1/user").permitAll()
-                .pathMatchers(HttpMethod.GET,"/api/v1/user").hasAnyAuthority("ADMIN")
-                .pathMatchers("/api/v1/project/**").hasAnyAuthority("TESTER","ADMIN","DEVELOPER")
-                .pathMatchers("/api/v1/bug/**").hasAnyAuthority("TESTER","ADMIN","DEVELOPER")
-                .pathMatchers("/api/v1/task/**").hasAnyAuthority("TESTER","ADMIN","DEVELOPER")
+                // Every income
+                .pathMatchers(HttpMethod.POST, "/api/v1/user").permitAll()
+                // All roles
+                .pathMatchers(HttpMethod.GET, "/api/v1/project").hasAnyAuthority(allRoles)
+                .pathMatchers(HttpMethod.GET, "/api/v1/project/**").hasAnyAuthority(allRoles)
+                .pathMatchers(HttpMethod.GET, "/api/v1/project-paged/**").hasAnyAuthority(allRoles)
+                .pathMatchers(HttpMethod.GET, "/api/v1/bug/**").hasAnyAuthority(allRoles)
+                .pathMatchers(HttpMethod.GET, "/api/v1/task/**").hasAnyAuthority(allRoles)
+                .pathMatchers(HttpMethod.GET, "/api/v1/history/**").hasAnyAuthority(allRoles)
+                // All roles except reader
+                .pathMatchers( "/api/v1/user").hasAnyAuthority(allRolesExceptReader)
+                .pathMatchers( "/api/v1/user/**").hasAnyAuthority(allRolesExceptReader)
+                .pathMatchers("/api/v1/project").hasAnyAuthority(allRolesExceptReader)
+                .pathMatchers("/api/v1/project/**").hasAnyAuthority(allRolesExceptReader)
+                .pathMatchers("/api/v1/bug").hasAnyAuthority(allRolesExceptReader)
+                .pathMatchers("/api/v1/bug/**").hasAnyAuthority(allRolesExceptReader)
+                .pathMatchers("/api/v1/task").hasAnyAuthority(allRolesExceptReader)
+                .pathMatchers("/api/v1/task/**").hasAnyAuthority(allRolesExceptReader)
+                // Config continue
                 .and().httpBasic()
                 .and().build();
-
     }
+
     @Bean
-    public BCryptPasswordEncoder passwordEncoder(){
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 

@@ -6,7 +6,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Set;
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -15,7 +14,6 @@ import java.util.Set;
 public class ProjectHistory {
     @Id
     private String projectHistoryId;
-    private String id;
     private String date;
     private String name;
     private String createdAt;
@@ -26,7 +24,7 @@ public class ProjectHistory {
     private String status;
 
     public ProjectHistory(String id, String date, String name, String createdAt, String closedAt, Set<String> teamEmails, Set<String> owners, String description, String status) {
-        this.id = id;
+        this.projectHistoryId = id;
         this.date = date;
         this.name = name;
         this.createdAt = createdAt;
@@ -36,5 +34,6 @@ public class ProjectHistory {
         this.description = description;
         this.status = status;
     }
+
 }
 
